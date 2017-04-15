@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="../css/bootstrap.css">
+	<title>borrow</title>
+</head>
+<body>
+	<div class = "text-right">
+        <a href="/libtest/cancel.do">注销</a>
+    </div>
+	<h1 class = "text-center">借书</h1>
+	<form class = "form-horizontal" action="../Borrow" method="post">
+		<div class = "form-group">
+			<label class = "col-lg-2 col-lg-offset-3 control-label">账户：</label>
+			<div class = "col-lg-3">
+				<input type="text" name="userid" class = "form-control">
+			</div>
+		</div>
+		<div class = "form-group">
+			<label class = "col-lg-2 col-lg-offset-3 control-label">密码：</label>
+			<div class = "col-lg-3">
+				<input type="password" name="password" class = "form-control">
+			</div>
+		</div>
+		<div class = "form-group">
+			<label class = "col-lg-2 col-lg-offset-3 control-label">图书ID：</label>
+			<div class = "col-lg-3">
+				<input type="text" name = "bkid" class = "form-control">
+			</div>
+		</div>
+		<div class = "form-group">
+			<div class = "col-lg-1 col-lg-offset-5">
+				<input type="submit" value = "确认" class = "form-control">
+			</div>
+			<div class = "col-lg-1 col-lg-offset-1">
+				<input type="reset" value = "取消" class = "form-control">
+			</div>
+		</div>
+	</form>
+</body>
+</html>
