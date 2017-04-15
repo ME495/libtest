@@ -4,7 +4,7 @@
 <html>
 	<head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-	<link rel = "stylesheet" type = "text/css" href = "http://localhost:8080/libtest/css/bootstrap.min.css"/>
+	<link rel = "stylesheet" type = "text/css" href = "../css/bootstrap.min.css"/>
 	<title>登陆</title>
 	<style type = "text/css">
 		.top-align{
