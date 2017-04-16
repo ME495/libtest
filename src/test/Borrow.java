@@ -47,7 +47,7 @@ public class Borrow extends HttpServlet {
 		User user = userManager.getUser(account);
 		if(user==null) {
 			out.println("用户名不存在！\n");
-		} else if(user.getPassword().equals(password)) {
+		} else if(!user.getPassword().equals(password)) {
 			out.println("密码错误！\n");
 		} else {
 			BookManager bookManager = new BookManager();
@@ -57,6 +57,7 @@ public class Borrow extends HttpServlet {
 			} else if(bookManager.isBorrowed(book.getId())) {
 				out.println("图书已被借！\n");
 			} else {
+				System.out.println("ok");
 				bookManager.borrow(account, book);
 				out.println("借书成功！\n");
 				

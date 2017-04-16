@@ -20,7 +20,7 @@ public class UserManager extends DAO{
 			if(result.next()) {
 				user.setAccount(account);
 				user.setPassword(result.getString("password"));
-				user.setPassword(result.getString("user_name"));
+				user.setUser_name(result.getString("user_name"));
 				return user;
 			} else {
 				return null;

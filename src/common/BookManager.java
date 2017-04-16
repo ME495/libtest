@@ -6,9 +6,6 @@ import java.sql.SQLException;
 import java.sql.Timestamp;
 import java.util.Date;
 
-import com.mysql.fabric.xmlrpc.base.Data;
-import com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException;
-
 public class BookManager extends DAO{
 	public BookManager(){
 		super();
@@ -58,26 +55,41 @@ public class BookManager extends DAO{
 			ps.setDouble(6, price);
 			ps.setString(7, location);
 			ps.setTimestamp(8, publish_date);
-			int flag = ps.executeUpdate();
-			if(flag > 0){
-				return true;
-			}else{
-				return false;
-			}
+			return ps.executeUpdate()>0;
 		}catch (SQLException e) {
 			return false;
 		}
 	}
 	
+	public boolean deleteBook(String index){
+		String sql = "select * from book where id = ?";
+		try {
+			PreparedStatement pstmt = getConnection().prepareStatement(sql);
+			pstmt.setString(1,index);
+			ResultSet rs = pstmt.executeQuery();
+			if(rs.next()){
+				PreparedStatement p = getConnection().prepareStatement("delete from book where id = ?");
+				p.setString(1, index);
+				return p.executeUpdate()>0;
+			}else{
+				return false;
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return false;
+		}
+	}
+	
 	public boolean isBorrowed(String id) {
-		String sql = "select * from book S,borrow T where S.id=? and S.id=T.id";
+		String sql = "select * from book S,borrow T where S.id=? and S.id=T.book_id";
 		try {
 			PreparedStatement ps = getConnection().prepareStatement(sql);
 			ps.setString(1, id);
 			ResultSet result = ps.executeQuery();
-			if(result.next()) return false;
+			if(result.next()) return true;
 			else return false;
 		}catch (SQLException e) {
+			e.printStackTrace();
 			return false;
 		}
 	}

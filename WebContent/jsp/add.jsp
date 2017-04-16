@@ -26,7 +26,7 @@
 		<div class="form-group">
 			<label class="control-label col-lg-1 col-lg-offset-3">出版日期：</label>
 			<div class="col-lg-2">
-				<input type="text" name="pblsdate" class="form-control">
+				<input type="date" name="pblsdate" class="form-control">
 			</div>
 			<label class="control-label col-lg-1">出版社：</label>
 			<div class="col-lg-2">
@@ -40,7 +40,7 @@
 			</div>
 			<label class="control-label col-lg-1">价格：</label>
 			<div class="col-lg-2">
-				<input type="text" name="price" class="form-control">
+				<input type="number" name="price" class="form-control">
 			</div>
 		</div>
 		<div class="form-group">
